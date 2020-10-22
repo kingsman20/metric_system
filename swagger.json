@@ -1,0 +1,74 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Metric Logging System"
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/metric/{key}": {
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "summary": "Create metric value",
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "description": "Value of the metric",
+            "schema": {
+              "$ref": "#/definitions/value"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metric is created",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/metric/{key}/sum": {
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+          "summary": "Get metric sum for the recent hour using the key",
+          "responses": {
+              "200": {
+                  "description": "Get metric sum for the recent hour",
+                  "schema": {
+                    "$ref": "#/definitions/value"
+                  }
+              }
+          }
+      }
+    }
+  },
+  "definitions": {
+    "value": {
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
