@@ -6,7 +6,7 @@
   },
   "host": "dcs-metric-system.herokuapp.com",
   "basePath": "/",
-  "schemes": ["http", "https"],
+  "schemes": ["https"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
@@ -20,7 +20,7 @@
         }
       ],
       "post": {
-        "summary": "Create metric value",
+        "summary": "Create metric value given the key",
         "parameters": [
           {
             "name": "value",
