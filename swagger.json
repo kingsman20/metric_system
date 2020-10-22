@@ -4,9 +4,9 @@
     "version": "1.0.0",
     "title": "Metric Logging System"
   },
-  "host": "https://dcs-metric-system.herokuapp.com",
+  "host": "dcs-metric-system.herokuapp.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["http", "https"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
